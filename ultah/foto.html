@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Foto Dan Kenangan</title>
+  <link rel="stylesheet" href="css/foto.css">
+  <link rel="icon" type="image/x-icon" href="img/Akane.jpeg"
+    style="width: 150px; height: 150px; border-radius: 50%; object-fit: cover;">
+</head>
+
+<body>
+  <div class="container">
+    <h1 id="mainTitle">Foto Dan Kenangan <span id="giftEmoji" data-sound="sound/ciro.mp3" role="button" tabindex="0"
+        title="Kejutan?">🎁</span></h1>
+    <p class="intro">
+      Di bawah sini ada foto tentang kenangan kamu yang aku ingat.
+      Dan terdapat ucapan dari setiap foto itu,untuk ucapan itu bersifat easter egg.
+      Dan kamu harus cari itu untuk melanjutkan ke halaman selanjutnya 😼, Clue ya adalah, ada sesuatu yang bersinar
+      saat kamu mendekatinya
+    </p>
+
+    <div class="photo-section">
+      <img src="img/gojo.jpg" alt="Foto 1" data-sound="sound/gojo.mp3" tabindex="0" role="button"
+        title="Klik untuk kejutan" class="trackable-egg">
+      <div class="text">
+        <h3>Gojo Satoru</h3>
+        <p>Seingat aku kamu pernah bilang suka sama gojo deh keknya tapi iyaa sih seharusnya, dan yah ku masukin ajah
+          deh, dulu bahas gojo karena apa ya lupa aku mau cek ulang hp ke reset 😅</p>
+      </div>
+    </div>
+
+    <div class="photo-section reverse">
+      <img src="img/imon.jpg" alt="Foto 2" data-sound="sound/phainon.mp3" tabindex="0" role="button"
+        title="Klik untuk kejutan" class="trackable-egg">
+      <div class="text">
+        <h3>Phainon</h3>
+        <p>Nah ini bisa di bilang kamu gak normal terlalu tergila gila sama nih karakter, tapi aku juga gitu sih ke
+          akane, ouh iya niatnya mau masukin aventurine tapi nyari voice ya susah, ouh iyaa ini voice phainon gak tau
+          bener gak tau engga soalnya ini pake suara AI 😛.</p>
+      </div>
+    </div>
+
+    <div class="photo-section">
+      <img src="img/mizuki.jpg" alt="Foto 3" data-sound="sound/mizuki.mp3" tabindex="0" role="button"
+        title="Klik untuk kejutan" class="trackable-egg">
+      <div class="text">
+        <h3>Yume Mizuki</h3>
+        <p>I don't know kenapa gua taro foto Mizuki di sini tapi gua pernah ingat kamu pas dapat Mizuki sangat sangat
+          bahagia dan senang ya jadi ku masukin sajah</p>
+      </div>
+    </div>
+
+    <div class="photo-section reverse">
+      <img src="img/nopal.jpg" alt="Foto 4" data-sound="sound/nopal.m4a" tabindex="0" role="button"
+        title="Klik untuk kejutan" class="trackable-egg">
+      <div class="text">
+        <h3>Neuvillette</h3>
+        <p>Kamu terlalu tergila gila sama nopal sampe kejar kejaran,Rui pun ampe takut miko dan aku hanya bisa
+          tertawa🤣.</p>
+      </div>
+    </div>
+
+    <div class="photo-section">
+      <img src="img/impact.jpeg" alt="Foto Bonus" data-sound="sound/genshin.mp3" tabindex="0" role="button"
+        title="Klik untuk kejutan">
+      <div class="text">
+        <h3>Genshin Impact</h3>
+        <p>Dan ini adalah game yang membuat kita bertemu, kita bertemu dari word miko dan kita mutual ig, setelah itu
+          kamu mulai chat saya, kamu pertama chat di tanggal 26/3/2025 dan bahas tentang "<span class="clickable-text"
+            id="tutorB5">Woe tutor dapat b5 standar</span>" dan ya kita mulai dekat mulai berani membuka diri serta
+          mulai tukeran wa yang menggunakan sistem gacha dan di situ pertama kali kita buat video bareng, saya yang
+          ngajak kamu buat video yang menggunakan lagu Yoru ni kakeru(Yoasobi).</p>
+      </div>
+    </div>
+
+    <div class="next-btn" id="nextBtn" aria-hidden="true">
+      <div style="text-align:center">
+        <div class="progress" id="progressText"></div>
+        <a href="vn.html" id="nextLink">
+          <button type="button" class="btn" aria-label="Lanjut">
+            <strong>LANJUT 🚀</strong>
+            <div id="container-stars">
+              <div id="stars"></div>
+            </div>
+            <div id="glow">
+              <div class="circle"></div>
+              <div class="circle"></div>
+            </div>
+          </button>
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <audio id="music"></audio>
+
+  <!-- Modal untuk Foto -->
+  <div id="photoModal" class="modal-overlay">
+    <span class="close-modal" id="closeModalBtn">&times;</span>
+    <img class="modal-content" src="img/gg.jpg" alt="Tutor B5">
+  </div>
+
+  <div class="loader-overlay" id="loader">
+    <div class="loader-wrapper">
+      <span class="loader-letter">L</span>
+      <span class="loader-letter">o</span>
+      <span class="loader-letter">a</span>
+      <span class="loader-letter">d</span>
+      <span class="loader-letter">i</span>
+      <span class="loader-letter">n</span>
+      <span class="loader-letter">g</span>
+      <span class="loader-letter">.</span>
+      <span class="loader-letter">D</span>
+      <span class="loader-letter">u</span>
+      <span class="loader-letter">l</span>
+      <span class="loader-letter">u</span>
+      <div class="loader"></div>
+    </div>
+  </div>
+
+  <script src="js/foto.js"></script>
+</body>
+
+</html>

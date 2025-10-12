@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title> Login </title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" type="image/x-icon" href="img/Akane.jpeg">
+</head>
+
+<body>
+  <div class="login-box">
+    <h2>🔒 Sebelum Lanjut Harus Login Dulu</h2>
+    <div class="password-container">
+      <input type="password" id="password" placeholder="Masukkan Password">
+      <span id="togglePassword" class="toggle-password">
+        <svg id="eye-open" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M2 12s3-7 10-7 10 7 10 7-3 7-10 7-10-7-10-7Z"></path>
+          <circle cx="12" cy="12" r="3"></circle>
+        </svg>
+        <svg id="eye-closed" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none"
+          stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display: none;">
+          <path d="M9.9 9.9 4.2 4.2C2.1 6.3 1 9 1 12s1.1 5.7 3.2 7.8l5.7-5.7Z"></path>
+          <path d="m14.1 14.1 5.7 5.7C21.9 17.7 23 15 23 12s-1.1-5.7-3.2-7.8l-5.7 5.7Z"></path>
+          <path d="M12 17.3a5.3 5.3 0 0 1-2.8-.8l-4.9 4.9"></path>
+          <path d="M1.1 1.1 22.9 22.9"></path>
+          <path d="M14.8 12a2.8 2.8 0 0 0-4-4l-4.9-4.9"></path>
+        </svg>
+      </span>
+    </div>
+    <p class="clue">Clue ya adalah istri dan anak Zuu</p>
+    <button class="animated-button" id="loginBtn">
+      <svg viewBox="0 0 24 24" class="arr-2" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+        </path>
+      </svg>
+      <span class="text">MASUK</span>
+      <span class="circle"></span>
+      <svg viewBox="0 0 24 24" class="arr-1" xmlns="http://www.w3.org/2000/svg">
+        <path
+          d="M16.1716 10.9999L10.8076 5.63589L12.2218 4.22168L20 11.9999L12.2218 19.778L10.8076 18.3638L16.1716 12.9999H4V10.9999H16.1716Z">
+        </path>
+      </svg>
+    </button>
+    <div class="error" id="errorMsg">Hahaha Salah Password🤣</div>
+  </div>
+
+  <script src="js/style.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,320 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+
+body {
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Quicksand", sans-serif;
+  background: radial-gradient(circle at 20% 20%, #1a1a2e, #0f3460, #16213e);
+  color: white;
+  text-align: center;
+  overflow: hidden;
+}
+
+canvas#universe,
+canvas#confetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -2;
+}
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  z-index: 2;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  text-shadow: 0 0 10px #fff, 0 0 20px #4cc9f0, 0 0 35px #4361ee;
+  animation: fadeInDown 1.2s ease;
+}
+
+p {
+  font-size: 1.2em;
+  margin-bottom: 30px;
+  max-width: 600px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.85);
+  opacity: 0;
+  animation: fadeIn 1.5s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.vn-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  width: 100%;
+}
+
+/* === Voice note card ala uiverse.io === */
+.vn-card {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 20px;
+  width: 100%;
+  max-width: 340px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeUp 1s forwards;
+}
+
+.vn-card:nth-of-type(1) {
+  animation-delay: 0.8s;
+}
+.vn-card:nth-of-type(2) {
+  animation-delay: 1.2s;
+}
+
+.vn-card:hover {
+  transform: translateY(-5px) scale(1.03);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(255, 0, 255, 0.5),
+    0 0 40px rgba(67, 97, 238, 0.4);
+}
+
+.vn-title {
+  font-size: 1.1em;
+  margin-bottom: 10px;
+  color: #ffdd57;
+  text-shadow: 0 0 8px rgba(255, 221, 87, 0.7);
+}
+
+.player {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.play-btn {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff00ff, #4361ee);
+  border: none;
+  color: white;
+  font-size: 22px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.25s ease, box-shadow 0.3s ease;
+  box-shadow: 0 0 20px rgba(255, 0, 255, 0.5);
+  flex-shrink: 0;
+  margin-right: 15px;
+}
+
+.play-btn:hover {
+  transform: scale(1.15) rotate(8deg);
+  box-shadow: 0 0 30px rgba(255, 0, 255, 0.8);
+}
+
+.wave {
+  display: flex;
+  align-items: flex-end;
+  gap: 4px;
+  height: 35px;
+  width: 100%;
+}
+
+.bar {
+  width: 5px;
+  height: 6px;
+  background: #4cc9f0;
+  border-radius: 3px;
+  animation: bounce 1s infinite ease-in-out;
+  animation-play-state: paused;
+  box-shadow: 0 0 5px rgba(76, 201, 240, 0.7);
+}
+
+.bar:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.bar:nth-child(3) {
+  animation-delay: 0.4s;
+}
+.bar:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+@keyframes bounce {
+  0%,
+  100% {
+    height: 6px;
+  }
+  50% {
+    height: 28px;
+  }
+}
+
+/* Animasi fade */
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Tombol WhatsApp === */
+.whatsapp-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+  text-decoration: none;
+  color: white;
+  font-size: 0.95em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.whatsapp-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.6), 0 0 25px rgba(37, 211, 102, 0.5);
+}
+
+.whatsapp-btn img {
+  width: 22px;
+  height: 22px;
+  margin-right: 8px;
+  filter: drop-shadow(0 0 5px rgba(37, 211, 102, 0.8));
+}
+
+/* === BALON & KUE === */
+.decor {
+  position: absolute;
+  font-size: 2.5rem;
+  animation: floatUp 12s linear infinite;
+  z-index: -1;
+  opacity: 0.8;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100vh) scale(1);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-120px) scale(1.2);
+    opacity: 0;
+  }
+}
+
+.balloon {
+  cursor: pointer;
+}
+
+.balloon.pop {
+  transform: scale(1.5);
+  opacity: 0;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  body {
+    padding: 15px;
+  }
+  h1 {
+    font-size: 2em;
+    margin-bottom: 15px;
+  }
+  p {
+    font-size: 1em;
+    margin-bottom: 25px;
+  }
+  .vn-container {
+    gap: 20px;
+  }
+  .vn-card {
+    max-width: 100%;
+    padding: 15px;
+  }
+  .play-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 20px;
+    margin-right: 10px;
+  }
+  .decor {
+    font-size: 2rem;
+  }
+  .whatsapp-btn {
+    font-size: 0.9em;
+  }
+  .whatsapp-btn img {
+    width: 20px;
+    height: 20px;
+  }
+}
+/* === Tombol AIB === */
+.aib-button-container {
+  margin-top: 40px;
+  z-index: 3;
+}
+
+.aib-btn {
+  background: linear-gradient(135deg, #ff00ff, #4361ee);
+  border: none;
+  border-radius: 50px;
+  padding: 15px 40px;
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.aib-btn:hover {
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 12px 30px rgba(255, 0, 255, 0.7);
+}

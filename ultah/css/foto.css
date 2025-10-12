@@ -1,0 +1,560 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Quicksand", sans-serif;
+  background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+  color: #f0faff;
+  overflow-x: hidden;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
+  padding: 40px 20px;
+}
+
+h1 {
+  text-align: center;
+  font-size: 2.5rem;
+  text-shadow: 0 0 12px #00f0ff, 0 0 20px #0077ff;
+  margin-bottom: 20px;
+}
+
+h1 > span {
+  display: inline-block;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+h1 > span:hover {
+  transform: scale(1.2) rotate(10deg);
+}
+
+h1 > span.played {
+  transform: scale(0.9);
+  opacity: 0.7;
+  cursor: default;
+}
+
+p.intro {
+  text-align: center;
+  font-size: 1.2rem;
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+/* Gambar sebagai easter-egg (lebih subtle): fokus dan hover menampilkan ring */
+.photo-section img {
+  width: 28%;
+  border-radius: 15px;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.7), 0 0 40px rgba(0, 119, 255, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease, outline 0.15s ease;
+  cursor: pointer;
+  outline: none;
+}
+
+.photo-section img:focus {
+  box-shadow: 0 0 28px rgba(0, 240, 255, 0.95), 0 0 48px rgba(0, 119, 255, 0.8);
+  transform: scale(1.08);
+}
+
+.photo-section {
+  display: flex;
+  align-items: center;
+  margin-bottom: 60px;
+  gap: 20px;
+  flex-wrap: wrap;
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 1s ease;
+}
+
+.photo-section.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-section img {
+  width: 28%;
+  border-radius: 15px;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.7), 0 0 40px rgba(0, 119, 255, 0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+}
+
+.photo-section img:hover {
+  transform: scale(1.12);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.9), 0 0 45px rgba(0, 180, 255, 0.8);
+}
+
+.photo-section .text {
+  flex: 1;
+  font-size: 1rem;
+  line-height: 1.6;
+  text-align: justify;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 20px;
+  border-radius: 15px;
+  border: 2px solid #00f0ff;
+  box-shadow: 0 0 15px rgba(0, 240, 255, 0.7), 0 0 25px rgba(0, 119, 255, 0.6);
+  user-select: none;
+  animation: glow-border 3s infinite alternate;
+}
+
+@keyframes glow-border {
+  from {
+    box-shadow: 0 0 15px rgba(0, 240, 255, 0.7), 0 0 25px rgba(0, 119, 255, 0.6);
+  }
+
+  to {
+    box-shadow: 0 0 30px rgba(0, 200, 255, 0.9), 0 0 50px rgba(0, 255, 255, 0.7);
+  }
+}
+
+.photo-section .text h3 {
+  margin-top: 0;
+  color: #00f0ff;
+  text-shadow: 0 0 10px #0077ff;
+}
+
+.photo-section.reverse {
+  flex-direction: row-reverse;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .photo-section {
+    flex-direction: column !important;
+    text-align: center;
+  }
+
+  .photo-section img {
+    width: 80%;
+  }
+
+  .photo-section .text {
+    text-align: center;
+  }
+}
+
+/* === LOADER === */
+.loader-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.loader-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 180px;
+  height: 180px;
+  font-family: "Inter", sans-serif;
+  font-size: 1.2em;
+  font-weight: 300;
+  color: white;
+  border-radius: 50%;
+  background-color: transparent;
+  user-select: none;
+}
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 50%;
+  background-color: transparent;
+  animation: loader-rotate 2s linear infinite;
+  z-index: 0;
+}
+
+@keyframes loader-rotate {
+  0% {
+    transform: rotate(90deg);
+    box-shadow: 0 10px 20px 0 #fff inset, 0 20px 30px 0 #00f0ff inset,
+      0 60px 60px 0 #471eec inset;
+  }
+
+  50% {
+    transform: rotate(270deg);
+    box-shadow: 0 10px 20px 0 #fff inset, 0 20px 10px 0 #0077ff inset,
+      0 40px 60px 0 #203a43 inset;
+  }
+
+  100% {
+    transform: rotate(450deg);
+    box-shadow: 0 10px 20px 0 #fff inset, 0 20px 30px 0 #00f0ff inset,
+      0 60px 60px 0 #471eec inset;
+  }
+}
+
+.loader-letter {
+  display: inline-block;
+  opacity: 0.4;
+  animation: loader-letter-anim 2s infinite;
+  z-index: 1;
+}
+
+.loader-letter:nth-child(1) {
+  animation-delay: 0s;
+}
+
+.loader-letter:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.loader-letter:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.loader-letter:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.loader-letter:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+.loader-letter:nth-child(6) {
+  animation-delay: 0.5s;
+}
+
+.loader-letter:nth-child(7) {
+  animation-delay: 0.6s;
+}
+
+.loader-letter:nth-child(8) {
+  animation-delay: 0.7s;
+}
+
+.loader-letter:nth-child(9) {
+  animation-delay: 0.8s;
+}
+
+.loader-letter:nth-child(10) {
+  animation-delay: 0.9s;
+}
+
+@keyframes loader-letter-anim {
+  0%,
+  100% {
+    opacity: 0.4;
+    transform: translateY(0);
+  }
+
+  20% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+
+  40% {
+    opacity: 0.7;
+    transform: translateY(0);
+  }
+}
+
+/* Tombol Lanjut (Uiverse.io modif sesuai tema) */
+.next-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 40px auto 0;
+  width: 100%;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.next-btn.show {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.next-btn a {
+  text-decoration: none;
+}
+
+.progress {
+  color: #c7f8ff;
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  text-align: center;
+  text-shadow: 0 0 8px rgba(0, 240, 255, 0.6);
+  user-select: none;
+}
+
+.next-caption {
+  margin-top: 10px;
+  font-size: 0.85rem;
+  color: rgba(240, 255, 255, 0.85);
+  text-align: center;
+  opacity: 0.9;
+}
+
+.btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 13rem;
+  height: 3.2rem;
+  overflow: hidden;
+  background-size: 300% 300%;
+  cursor: pointer;
+  border-radius: 5rem;
+  transition: 0.5s;
+  animation: gradient_301 6s ease infinite;
+  border: double 3px transparent;
+  background-image: linear-gradient(#0f2027, #0f2027),
+    linear-gradient(
+      137.48deg,
+      #00f0ff 10%,
+      #0077ff 45%,
+      #8f51ea 75%,
+      #2c5364 95%
+    );
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  position: relative;
+  box-shadow: 0 8px 30px rgba(0, 120, 255, 0.12);
+}
+
+.btn .strong {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+strong {
+  z-index: 2;
+  font-size: 14px;
+  letter-spacing: 3px;
+  color: #ffffff;
+  text-shadow: 0 0 6px #00f0ff, 0 0 12px #0077ff;
+  font-family: "Quicksand", sans-serif;
+}
+
+#container-stars {
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 5rem;
+  overflow: hidden;
+}
+
+#stars,
+#stars::before,
+#stars::after {
+  position: absolute;
+  content: "";
+  width: 200rem;
+  height: 200rem;
+  background-image: radial-gradient(#ffffff 1px, transparent 1%);
+  background-size: 50px 50px;
+}
+
+#stars {
+  top: 0;
+  left: -100rem;
+  animation: animStarRotate 120s linear infinite;
+}
+
+#stars::before {
+  top: 0;
+  left: -50%;
+  opacity: 0.4;
+  animation: animStar 90s linear infinite;
+}
+
+#stars::after {
+  top: -10rem;
+  left: -100rem;
+  animation: animStar 100s linear infinite;
+  opacity: 0.6;
+}
+
+#glow {
+  position: absolute;
+  display: flex;
+  width: 12rem;
+}
+
+.circle {
+  width: 100%;
+  height: 30px;
+  filter: blur(2rem);
+  animation: pulse_3011 4s infinite;
+  z-index: -1;
+}
+
+.circle:nth-of-type(1) {
+  background: rgba(0, 240, 255, 0.6);
+}
+
+.circle:nth-of-type(2) {
+  background: rgba(0, 119, 255, 0.6);
+}
+
+.btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(0, 240, 255, 0.8), 0 0 45px rgba(0, 119, 255, 0.6);
+}
+
+.btn:active {
+  border: double 3px #00f0ff;
+  animation: none;
+}
+
+@keyframes animStar {
+  from {
+    transform: translateY(0);
+  }
+
+  to {
+    transform: translateY(-135rem);
+  }
+}
+
+@keyframes animStarRotate {
+  from {
+    transform: rotate(360deg);
+  }
+
+  to {
+    transform: rotate(0);
+  }
+}
+
+@keyframes gradient_301 {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse_3011 {
+  0% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0.5);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 240, 255, 0);
+  }
+
+  100% {
+    transform: scale(0.75);
+    box-shadow: 0 0 0 0 rgba(0, 240, 255, 0);
+  }
+}
+
+/* Confetti */
+.confetti {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  top: -10px;
+  animation: fall 3s linear forwards;
+  z-index: 9999;
+}
+
+@keyframes fall {
+  to {
+    transform: translateY(100vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+/* Teks yang bisa diklik */
+.clickable-text {
+  color: #4dffff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.clickable-text:hover {
+  color: #ffffff;
+  text-shadow: 0 0 8px #00f0ff;
+}
+
+/* Modal Overlay untuk Foto */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: none;
+  /* Sembunyi secara default */
+  justify-content: center;
+  align-items: center;
+  z-index: 10000;
+  backdrop-filter: blur(5px);
+  animation: fadeInModal 0.4s ease;
+}
+
+@keyframes fadeInModal {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.modal-content {
+  max-width: 90%;
+  max-height: 85vh;
+  border-radius: 10px;
+  box-shadow: 0 0 30px rgba(0, 240, 255, 0.7);
+  border: 2px solid #00f0ff;
+  aspect-ratio: 9 / 16;
+  /* Menetapkan rasio aspek 9:16 */
+  object-fit: cover;
+  /* Memastikan gambar mengisi bingkai tanpa distorsi */
+}
+
+.close-modal {
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s, transform 0.3s;
+}
+
+.close-modal:hover {
+  color: #ff4780;
+  transform: scale(1.2);
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aib</title>
+    <link rel="icon" type="image/x-icon" href="img/Akane.jpeg" />
+    <link rel="stylesheet" href="css/aib.css">
+</head>
+
+<body>
+    <div class="stars"></div>
+    <div class="twinkling"></div>
+
+    <div class="container">
+        <h1>💙 Aib Kami Bertiga💙</h1>
+        <p class="desc">Aib Kamu, Mikael, Dan Mas Zuu Si Baik✨</p>
+
+        <div class="controls">
+            <button class="btn" id="clear-all">
+                <span>🗑 Hapus Semua Aib</span>
+            </button>
+            <button class="btn" id="restore-all">
+                <span>🔁 Pulihkan Aib</span>
+            </button>
+            <button class="btn" id="music-btn">
+                <span>🔊 Musik</span>
+            </button>
+            <button class="btn" id="celebrate">
+                <span>🎉 effect partikel!</span>
+            </button>
+        </div>
+
+        <div class="gallery" id="gallery"></div>
+
+        <div id="empty-state">
+            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="12" cy="9" r="2" fill="#00c3ff" />
+                <circle cx="12" cy="9" r="1" fill="#0077ff" />
+                <path
+                    d="M12 14C14.2091 14 16 12.2091 16 10C16 7.79086 14.2091 6 12 6C9.79086 6 8 7.79086 8 10C8 12.2091 9.79086 14 12 14Z"
+                    stroke="#00c3ff" stroke-width="1.5" />
+                <path d="M5 20C5 16.134 8.13401 13 12 13C15.866 13 19 16.134 19 20" stroke="#00c3ff" stroke-width="1.5"
+                    stroke-linecap="round" />
+                <path d="M3 12L5 10" stroke="#ff5757" stroke-width="1.5" stroke-linecap="round" />
+                <path d="M21 12L19 10" stroke="#ff5757" stroke-width="1.5" stroke-linecap="round" />
+            </svg>
+            <p>Yah, aibnya dihapus...<br><strong>pulihkan</strong> lagi gak! 🤬</p>
+        </div>
+    </div>
+
+    <canvas id="confetti"></canvas>
+
+    <!-- Audio Elements -->
+    <audio id="bg-music" preload="none">
+        <source
+            src="sound/mangu.mp3"
+            type="audio/mpeg">
+    </audio>
+    <audio id="laugh-sound" preload="auto">
+        <source
+            src="sound/error_CDOxCYm.mp3"
+            type="audio/mpeg">
+    </audio>
+
+    <script src="js/aib.js"></script>
+</body>
+
+</html>
